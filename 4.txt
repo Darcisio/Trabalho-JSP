@@ -1,0 +1,100 @@
+  
+<! DOCTYPE html >
+< html >
+< cabeça >
+< meta  charset = " UTF-8 " >
+< title > Cadastro de aluno </ title >
+</ head >
+< corpo >
+	< div >
+		< form  action = " matricula.jsp " method = " post " >
+			Nome < entrada  tipo = " texto " nome =" Nome " > < br />
+			Endereco < entrada  tipo = " texto " nome =" endereco " > < br />
+			CPF < entrada  tipo = " número " nome =" CPF " > < br />
+			Telefone < entrada  tipo = " número " nome =" telefone " > < br /> < br />
+		
+			< button  type = " submit " > Enviar </ button >
+		</ form >
+	</ div >
+</ body >
+</ html >
+
+<% @ page  language = " java "  contentType = " text / html; charset = UTF-8 "
+    pageEncoding = " UTF-8 " %>
+<! DOCTYPE html>
+< html >
+< cabeça >
+< meta  charset = " UTF-8 " >
+< title > Confirmação de matrícula </ title >
+</ head >
+< corpo >
+<%
+	Nome da string = solicitação . getParameter ( " nome " );
+	String endereco = pedido . getParameter ( " endereco " );
+	String cpf = pedido . getParameter ( " cpf " );
+	String telefone = pedido . getParameter ( " telefone " );
+	String [] arr = pedido . getParameterValues ​​( " selecionado " );
+% >
+	< h1 > Dados </ h1 >
+	< h4 > Nome: <% = nome % > </ h4 >
+	< h4 > Endereço: <% = endereco % > </ h4 >
+	< h4 > CPF: <% = cpf % > </ h4 >
+	< h4 > Telefone: <% = telefone % > </ h4 >
+	
+	< h1 > Cursos: </ h1 >
+	<%
+	if (arr ! =  null ) {
+		para ( int i =  0 ; i < arr . comprimento; i ++ ) {
+			para fora . imprimir ( " <h4> " + arr [i] + " </h4> " );
+		}
+	} else {
+		para fora . print ( " <h4> Nenhum curso foi selecionado! </h4> " );
+	}
+	% >
+</ body >
+</ html >
+
+<% @ page  language = " java "  contentType = " text / html; charset = UTF-8 "
+    pageEncoding = " UTF-8 " %>
+<! DOCTYPE html>
+< html >
+< cabeça >
+< meta  charset = " UTF-8 " >
+< title > Matrícula </ title >
+</ head >
+< corpo >
+<%
+	Nome da string = solicitação . getParameter ( " nome " );
+	String endereco = pedido . getParameter ( " endereco " );
+	String cpf = pedido . getParameter ( " cpf " );
+	String telefone = pedido . getParameter ( " telefone " );
+% >
+	< h1 > Dados </ h1 >
+	< h4 > Nome: <% = nome % > </ h4 >
+	< h4 > Endereço: <% = endereco % > </ h4 >
+	< h4 > CPF: <% = cpf % > </ h4 >
+	< h4 > Telefone: <% = telefone % > </ h4 >
+	
+	< h2 > Selecione os cursos que deseja fazer: </ h2 >
+	< form  action = " confirmaMatricula.jsp "  method = " post " >
+		< input  type = " checkbox "  id = " curso1 "  name = " selected "  value = " ingles " >
+		< Rótulo  para = " vehicle1 " > Informatica </ rótulo > < br >
+		< input  type = " checkbox "  id = " curso2 "  name = " selected "  value = " japones " >
+		< Rótulo  para = " vehicle1 " > Robotica </ rótulo > < br >
+		< input  type = " checkbox "  id = " curso3 "  name = " selected "  value = " alemao " >
+		< Rótulo  para = " vehicle1 " > Inglês </ rótulo > < br >
+		< input  type = " checkbox "  id = " curso4 "  name = " selected "  value = " frances " >
+		< Rótulo  para = " vehicle1 " > Promagração </ rótulo > < br >
+		< input  type = " checkbox "  id = " curso5 "  name = " selected "  value = " italiano " >
+		< Rótulo  para = " vehicle1 " > Redes </ rótulo > < br > < br >
+		
+		< input  type = " hidden "  name = " nome "  value = " <% = nome % > " >
+		< input  type = " hidden "  name = " endereco "  value = " <% = endereco % > " >
+		< input  type = " escondido "  name = " cpf "  value = " <% = cpf % > " >
+		< input  type = " hidden "  name = " telefone "  value = " <% = telefone % > " >
+
+		< button  type = " submit " > Matricular </ button >
+	</ form >
+
+</ body >
+</ html >

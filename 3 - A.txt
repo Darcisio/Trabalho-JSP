@@ -1,0 +1,33 @@
+<% @ page  language = " java "  contentType = " text / html; charset = UTF-8 "
+    pageEncoding = " UTF-8 " %>
+<% @ page  import = " java.util.ArrayList " %>
+<! DOCTYPE html>
+< html >
+< cabeça >
+< meta  charset = " UTF-8 " >
+< title > Mensagens </ title >
+</ head >
+< corpo >
+<%
+	String email = solicitação . getParameter ( " e-mail " );
+	
+	String msg = pedido . getParameter ( " Mensagem " );
+	
+	ArrayList < String > mensagens = ( ArrayList < String > ) sessão . getAttribute ( " mensagens " );
+	
+	if (mensagens ==  null ) {
+		mensagens =  novo  ArrayList < String > ();
+		mensagens . adicionar (Mensagem);
+		sessão . setAttribute ( " mensagens " , mensagens);
+	} else {
+		mensagens . adicionar (Mensagem);
+	}
+	
+	if (email . isEmpty ()) {
+		pageContext . forward ( " novaMensagem.jsp " );
+	} else {
+		pageContext . forward ( " listarMensagens.jsp " );	
+	}
+% >
+</ body >
+</ html >

@@ -1,0 +1,21 @@
+<% @ page  language = " java "  contentType = " text / html; charset = ISO-8859-1 "
+    pageEncoding = " ISO-8859-1 " %>
+<! DOCTYPE html>
+< html >
+< cabeça >
+< meta  charset = " ISO-8859-1 " >
+< title > Temperatura </ title >
+</ head >
+< corpo >
+< mesa >
+<%
+para ( int i =  - 40 ; i <= 100 ; i + =  10 ) { % >
+<% Int  Fahrenheit  = (i *  9 / 5 ) +  32 ; % > 
+< tr >
+< th > Celsius: <% = i % > ° C </ th >
+< th > Fahrenheit: <% = Fahrenheit % > ° F </ th >
+</ tr >
+<% }% >
+</ mesa >
+</ body >
+</ html >

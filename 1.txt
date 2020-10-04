@@ -1,0 +1,22 @@
+<% @ page  import = " java.text.SimpleDateFormat " %>
+<% @ page  import = " java.util.Date " %>
+<% @ page  language = " java "  contentType = " text / html; charset = ISO-8859-1 "
+    pageEncoding = " ISO-8859-1 " %>
+<! DOCTYPE html>
+< html >
+< cabeça >
+< meta  charset = " ISO-8859-1 " >
+< título > Dados de hoje </ título >
+</ head >
+< corpo >
+< h1 > Dados de hoje </ h1 >
+
+< h2 > <% out . imprimir ( " Data de hoje formato Americano "  +  nova  Data ()); % > </ h2 >
+
+< h3 > <% Date dia = new Date ();   
+SimpleDateFormat  BR  =  new  SimpleDateFormat ( " dd / MM / aaaa " );
+para fora . impressão ( " Data de hoje formato Brasileiro "  +  formato BR . (dia)); % > </ h3 >
+
+
+</ body >
+</ html >

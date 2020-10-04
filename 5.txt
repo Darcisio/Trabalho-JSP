@@ -1,0 +1,59 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.time.format.DateTimeFormatter, java.time.LocalDate, java.time.Period" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+<%	String nome = request.getParameter("nome");
+	String nascimento = request.getParameter("nascimento");
+	DateTimeFormatter nasc = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
+	LocalDate dataNasc = LocalDate.parse(nascimento, nasc);
+	
+	LocalDate now = LocalDate.now();
+	
+	Period diff = Period.between(dataNasc, now);
+	int idade = diff.getYears();
+	
+	request.setAttribute("idade", idade);
+	request.setAttribute("nome", nome);
+	pageContext.forward("Resultado.jsp");
+%>
+</body>
+</html>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Resultado</title>
+</head>
+<body>
+	<h1>Resultado</h1>
+
+	<h3>Nome: <%=request.getAttribute("nome") %></h3>
+	<h3>Idade: <%=request.getAttribute("idade") %></h3>
+</html>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Início</title>
+</head>
+<body>
+<h1>Início</h1>
+<form action="CalculaIdade.jsp" method="post">
+	Nome <input type="text" name="nome"><br/>
+	Nascimento <input type="date" name="nascimento"><br/>
+	<button type="submit">Calcular</button>
+</form>
+
+</body>
+</html>
